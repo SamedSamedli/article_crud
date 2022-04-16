@@ -72,6 +72,3 @@ class Database
         return $t_rows;
     }
 }
-
-$ob = new Database();
-echo $ob->totalRowCount();
