@@ -38,7 +38,7 @@ class Database
         return $data;
     }
 
-    public function getArticleByID($id)
+    public function getArticleById($id)
     {
         $sql = "SELECT * FROM articles WHERE id = :id";
         $stmt = $this->conn->prepare($sql);
@@ -49,7 +49,7 @@ class Database
 
     public function update($id, $title, $description, $status)
     {
-        $sql = "UPDATE articles SET title = :title, description = :description, status = :status";
+        $sql = "UPDATE articles SET title = :title, description = :description, status = :status WHERE id = :id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute(['title' => $title, 'description' => $description, 'status' => $status, 'id' => $id]);
         return true;
